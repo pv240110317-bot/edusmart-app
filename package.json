@@ -1,0 +1,117 @@
+{
+  "name": "edusmart-app",
+  "version": "1.0.0",
+  "description": "Aplicación de Asesoría en Línea e IA",
+  "author": {
+    "name": "eduSmart Team",
+    "email": "info@edusmart.app"
+  },
+  "homepage": "https://edusmart.app",
+  "type": "module",
+  "main": "electron/main.cjs",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "electron:dev": "concurrently \"cross-env NODE_ENV=development vite\" \"wait-on http-get://localhost:5173 http-get://localhost:5174 http-get://localhost:5175 http-get://localhost:5176 http-get://localhost:5177 && cross-env NODE_ENV=development electron .\"",
+    "electron:build": "vite build && electron-builder",
+    "electron:build:linux": "vite build && electron-builder --linux",
+    "electron:build:win": "vite build && electron-builder --win",
+    "electron:build:mac": "vite build && electron-builder --mac",
+    "electron:pack": "vite build && electron-builder --dir",
+    "dist": "npm run electron:build",
+    "dist:linux": "npm run electron:build:linux",
+    "dist:all": "npm run electron:build",
+    "android:build": "npm run build && npx cap sync android && cd android && ./gradlew assembleRelease",
+    "android:apk": "npm run build && npx cap sync android && cd android && ./gradlew assembleRelease && cp app/build/outputs/apk/release/app-release.apk ../release/eduSmart-1.0.0.apk && mkdir -p ../public && cp app/build/outputs/apk/release/app-release.apk ../public/eduSmart-1.0.0.apk",
+    "android:dev": "npm run build && npx cap sync android && npx cap open android"
+  },
+  "build": {
+    "appId": "com.edusmart.app",
+    "productName": "eduSmart",
+    "copyright": "Copyright © 2024 eduSmart",
+    "directories": {
+      "output": "release",
+      "buildResources": "build"
+    },
+    "files": [
+      "dist/**/*",
+      "electron/**/*",
+      "package.json"
+    ],
+    "asar": true,
+    "linux": {
+      "target": [
+        {
+          "target": "AppImage",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "deb",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "category": "Education",
+      "maintainer": "eduSmart Team <info@edusmart.app>"
+    },
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "portable",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "build/icon.ico"
+    },
+    "mac": {
+      "target": [
+        {
+          "target": "dmg",
+          "arch": [
+            "x64",
+            "arm64"
+          ]
+        }
+      ],
+      "icon": "build/icon.icns",
+      "category": "public.app-category.education"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true
+    }
+  },
+  "dependencies": {
+    "jspdf": "^3.0.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^7.9.6"
+  },
+  "devDependencies": {
+    "@capacitor/android": "^7.4.4",
+    "@capacitor/cli": "^7.4.4",
+    "@capacitor/core": "^7.4.4",
+    "@vitejs/plugin-react": "^4.2.1",
+    "concurrently": "^9.2.1",
+    "cross-env": "^10.1.0",
+    "electron": "^39.2.1",
+    "electron-builder": "^26.0.12",
+    "terser": "^5.44.1",
+    "vite": "^5.0.0",
+    "wait-on": "^9.0.3"
+  }
+}

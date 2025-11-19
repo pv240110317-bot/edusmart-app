@@ -1,0 +1,12 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=eduSmart
+Comment=Aplicación de Asesoría en Línea e IA
+Exec=/home/agualoka/Escritorio/cultura/start.sh
+Icon=application-x-executable
+Terminal=false
+Categories=Education;Development;
+StartupNotify=true
+Path=/home/agualoka/Escritorio/cultura
+

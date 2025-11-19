@@ -1,0 +1,296 @@
+.admin-container {
+  padding: 2rem;
+}
+
+.admin-header {
+  margin-bottom: 2rem;
+}
+
+.admin-header h1 {
+  font-size: 2.5rem;
+  color: #333;
+  margin: 0 0 0.5rem 0;
+}
+
+.admin-header p {
+  color: #666;
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+.admin-mensaje {
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.admin-mensaje.success {
+  background: #d1fae5;
+  color: #065f46;
+  border: 2px solid #10b981;
+}
+
+.admin-mensaje.error {
+  background: #fee2e2;
+  color: #991b1b;
+  border: 2px solid #ef4444;
+}
+
+.admin-users-list {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+
+.users-table-header {
+  display: grid;
+  grid-template-columns: 2fr 1.5fr 1.5fr 1fr 2fr;
+  gap: 1rem;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  font-weight: 600;
+}
+
+.user-row {
+  display: grid;
+  grid-template-columns: 2fr 1.5fr 1.5fr 1fr 2fr;
+  gap: 1rem;
+  padding: 1.5rem;
+  border-bottom: 1px solid #eee;
+  align-items: center;
+  transition: background 0.3s;
+}
+
+.user-row.bloqueado {
+  opacity: 0.6;
+  background: #fee2e2;
+}
+
+.user-row:hover {
+  background: #f9fafb;
+}
+
+.user-row:last-child {
+  border-bottom: none;
+}
+
+.col-usuario strong {
+  color: #333;
+  font-size: 1.1rem;
+}
+
+.role-badge {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.role-select {
+  padding: 0.5rem 1rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: border-color 0.3s;
+  background: white;
+  width: 100%;
+}
+
+.role-select:focus {
+  outline: none;
+  border-color: #667eea;
+}
+
+.role-select:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background: #f5f5f5;
+}
+
+.col-fecha {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.admin-error {
+  text-align: center;
+  padding: 3rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.admin-error h2 {
+  color: #ef4444;
+  margin-bottom: 1rem;
+}
+
+.admin-error p {
+  color: #666;
+  margin: 0.5rem 0;
+}
+
+.admin-info {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.admin-info h3 {
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.admin-info ul {
+  list-style: none;
+  padding: 0;
+}
+
+.admin-info li {
+  padding: 0.75rem 0;
+  border-bottom: 1px solid #eee;
+  color: #666;
+  line-height: 1.6;
+}
+
+.admin-info li:last-child {
+  border-bottom: none;
+}
+
+.admin-info strong {
+  color: #333;
+}
+
+@media (max-width: 968px) {
+  .users-table-header,
+  .user-row {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+
+  .users-table-header {
+    display: none;
+  }
+
+  .user-row {
+    border: 1px solid #eee;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    padding: 1rem;
+  }
+
+  .col-usuario::before {
+    content: "Usuario: ";
+    font-weight: 600;
+    color: #667eea;
+  }
+
+  .col-rol::before {
+    content: "Rol: ";
+    font-weight: 600;
+    color: #667eea;
+  }
+
+  .col-acciones::before {
+    content: "Cambiar a: ";
+    font-weight: 600;
+    color: #667eea;
+  }
+
+  .col-fecha::before {
+    content: "Creado: ";
+    font-weight: 600;
+    color: #667eea;
+  }
+}
+
+.user-email {
+  color: #666;
+  font-size: 0.85rem;
+  margin-top: 0.25rem;
+}
+
+.plan-badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.estado-badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.activo-badge {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.bloqueado-badge {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.inactivo-badge {
+  background: #e5e7eb;
+  color: #6b7280;
+}
+
+.col-acciones {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.btn-bloquear {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: all 0.3s;
+  white-space: nowrap;
+  background: #ef4444;
+  color: white;
+}
+
+.btn-bloquear.desbloquear {
+  background: #10b981;
+}
+
+.btn-bloquear:hover {
+  transform: scale(1.05);
+}
+
+.empty-users {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 3rem;
+  color: #999;
+}
+
+.empty-users p {
+  margin: 0.5rem 0;
+  font-size: 1.1rem;
+}
+
+.admin-subtitle {
+  color: #666;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+}
+
