@@ -4,7 +4,7 @@ import path from 'path'
 
 export default defineConfig({
   plugins: [react()],
-  base: './',
+  base: '/edusmart-app/',
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './'),
